@@ -68,7 +68,7 @@
 		</dependency>
 
 
-		<!-- <dependency> <groupId>lwgl</groupId> <artifactId>lwgl</artifactId> 
+		<!-- <dependency> <groupId>lwgl</groupId> <artifactId>lwgl</artifactId>
 			<version>1.0-SNAPSHOT</version> <scope>system</scope> <systemPath>${basedir}/lib/jar/lwjgl.jar</systemPath> 
 			</dependency> <dependency> <groupId>lwjgl_util</groupId> <artifactId>lwjgl_util</artifactId> 
 			<version>1.0-SNAPSHOT</version> <scope>system</scope> <systemPath>${basedir}/lib/jar/lwjgl_util.jar</systemPath> 
@@ -78,6 +78,7 @@
 	</dependencies>
 
 	<build>
+		<defaultGoal>clean install</defaultGoal>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>

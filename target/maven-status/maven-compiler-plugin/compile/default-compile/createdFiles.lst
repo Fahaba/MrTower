@@ -7,7 +7,6 @@ al\artofsoul\ndihma\Artist.class
 al\artofsoul\ndihma\Leveler$1.class
 al\artofsoul\userinterface\UI$Menu.class
 al\artofsoul\data\Armiku.class
-al\artofsoul\data\Boot.class
 al\artofsoul\data\TowerCannonBlue.class
 al\artofsoul\main\Main.class
 al\artofsoul\data\Checkpoint.class
@@ -15,6 +14,7 @@ al\artofsoul\data\ValaManager.class
 al\artofsoul\data\Game.class
 al\artofsoul\data\PllakaFusha.class
 al\artofsoul\data\ArmikuAlien.class
+al\artofsoul\data\MrTower.class
 al\artofsoul\data\Entity.class
 al\artofsoul\data\Lojtari.class
 al\artofsoul\data\KullaTop.class
