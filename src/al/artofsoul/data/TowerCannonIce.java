@@ -11,7 +11,7 @@ public class TowerCannonIce extends Tower {
 	
 	@Override
 	public void shoot (Armiku target) {
-		super.projectiles.add(new ProjectileIceball(super.type.projectileType, super.target, super.getX(), super.getY(), 32, 32));
+		super.GetProjectileList().add(new ProjectileIceball(super.GetTowerType().projectileType, super.GetTarget(), super.getX(), super.getY(), 32, 32));
 		//super.target.reduceHiddenHealth(super.type.projectileType.damage);
 	}
 }

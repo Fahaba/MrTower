@@ -13,16 +13,16 @@ public class StateManger {
 		MAINMENU, GAME, EDITOR
 	}
 	
-	public static GameState gameState = GameState.MAINMENU;
-	public static MainMenu mainMenu;
-	public static Game game;
-	public static Editor editor;
+	private static GameState gameState = GameState.MAINMENU;
+	private static MainMenu mainMenu;
+	private static Game game;
+	private static Editor editor;
 	
-	public static long nextSecond = System.currentTimeMillis() + 1000;
-	public static int framesInLastSecond = 0;
-	public static int framesInCurrentSecond = 0;
+	private static long nextSecond = System.currentTimeMillis() + 1000;
+	private static int framesInLastSecond = 0;
+	private static int framesInCurrentSecond = 0;
 	
-	static PllakaFusha map = LoadMap("res/map/harta"); // when the map is reading
+	static PllakaFusha map = LoadMap("res/MAP/harta"); // when the MAP is reading
 		
 		/*
 			{0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1},
@@ -70,5 +70,7 @@ public class StateManger {
 	public static void setState(GameState newState) {
 		gameState = newState;
 	}
+
+	public static int GetFramesInLastSecond() { return framesInLastSecond; }
 
 }

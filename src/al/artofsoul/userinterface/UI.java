@@ -43,6 +43,10 @@ public class UI {
 
 	public boolean isButtonClicked(String buttonName) {
 		Button b = getButton(buttonName);
+
+		if (b == null)
+			return false;
+
 		float mouseY = HEIGHT - Mouse.getY() - 1;
 		if (Mouse.getX() > b.getX() && Mouse.getX() < b.getX() + b.getWidth() &&
 				mouseY > b.getY() && mouseY < b.getY() + b.getHeight()) {

@@ -5,8 +5,8 @@ import org.lwjgl.Sys;
 public class Ora {
 	
 	private static boolean paused = false;
-	public static long lastFrame, totalTime;
-	public static float d = 0, multiplier = 1;
+	private static long lastFrame, totalTime;
+	private static float d = 0, multiplier = 1;
 	
 	
 	public static long merrKohen(){

@@ -18,7 +18,7 @@ public class Lojtari {
 	private ArrayList<Tower> towerList;
 	private boolean leftMouseButtonDown, rightMouseButtonDown, holdingTower;
 	private Tower tempTower;
-	public static int Gold, Lives;
+	private static int Gold, Lives;
 	
 	public Lojtari(PllakaFusha grid, ValaManager valaManager ){
 		this.grid = grid;
@@ -32,30 +32,46 @@ public class Lojtari {
 		this.rightMouseButtonDown = false;
 		this.holdingTower = false;
 		this.tempTower = null;
-		Gold = 0;
-		Lives = 0;
+		SetGold(0);
+		SetLives(0);
 		
 	}
 	// Initialize Gold and Lives values for player
 	public void setup() {
-		Gold = 200;
-		Lives = 10;
+		SetGold(200);
+		SetLives(10);
 	}
 	// check if player can afford tower, if so: change player tower cost
 	public static boolean modifyGold(int amount) {
-		if (Gold + amount >= 0) {
-			Gold += amount;
-			System.out.println(Gold);
+		if (GetGold() + amount >= 0) {
+			SetGold(GetGold() + amount);
+			System.out.println(GetGold());
 			return true;
 		}
 		System.out.println("Glod");
 		return false;
 	}
+
+	private static void SetGold(int amount) {
+	    Gold = amount;
+    }
+
+    public static int GetGold() {
+        return Gold;
+    }
 	
 	public static void modifyLives(int amount) {
 		Lives += amount;
 	}
-	
+
+    private static void SetLives(int amount) {
+        Lives = amount;
+    }
+
+    public static int GetLives() {
+        return Lives;
+    }
+
 	public void update(){
 		// update holding tower
 		if (holdingTower){

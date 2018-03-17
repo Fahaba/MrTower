@@ -20,7 +20,7 @@ public class Editor{
 	private Texture menuBackground;
 
 	public Editor() {
-		this.grid = LoadMap("res/map/harta");
+		this.grid = LoadMap("res/MAP/harta");
 		this.index = 0;
 		this.types = new PllakaType[3];
 		this.types[0] = PllakaType.Grass;
@@ -65,10 +65,10 @@ public class Editor{
 					&& Keyboard.getEventKeyState()) {
 				moveIndex();
 			}
-			// saving editor map create by user with S key from keyboard
+			// saving editor MAP create by user with S key from keyboard
 			if (Keyboard.getEventKey() == Keyboard.KEY_S
 					&& Keyboard.getEventKeyState()) {
-				SaveMap("res/map/harta", grid);
+				SaveMap("res/MAP/harta", grid);
 			}
 		}
 	}
@@ -80,8 +80,8 @@ public class Editor{
 	}
 
 	private void shtoPllaka() {
-		grid.shtoPllaka((int) Math.floor(Mouse.getX() / TILE_SIZE),
-				(int) Math.floor((HEIGHT - Mouse.getY() - 1) / TILE_SIZE),
+		grid.shtoPllaka((int) Math.floor((double)Mouse.getX() / TILE_SIZE),
+				(int) Math.floor((double)(HEIGHT - Mouse.getY() - 1) / TILE_SIZE),
 				types[index]);
 	}
 	//Allows editor to change which PllakaType is selected

@@ -21,13 +21,13 @@ public class Leveler {
 			}
 		}
 		try {
-		File file = new File(mapName);
-			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            File file = new File(mapName);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			bw.write(mapData);
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 	
 	public static PllakaFusha LoadMap(String mapName) {

@@ -13,15 +13,15 @@ public abstract class Tower implements Entity {
 	
 	private float x, y, timeSinceLastShot, firingSpeed, angle;
 	private int width, height, range, cost;
-	public Armiku target;
+	private Armiku target;
 	private Texture[] textures;
 	private CopyOnWriteArrayList<Armiku> armiqt;
 	private boolean targeted;
-	public ArrayList<Projectile> projectiles;
-	public TowerType type;
+	private ArrayList<Projectile> projectiles;
+	private TowerType type;
 
 	public Tower(TowerType type, Pllaka filloPllaka, CopyOnWriteArrayList<Armiku> armiqt) {
-		this.type = type;
+		SetType(type);
 		this.textures = type.textures;
 		this.range = type.range;
 		this.cost = type.cost;
@@ -32,7 +32,7 @@ public abstract class Tower implements Entity {
 		this.armiqt = armiqt;
 		this.targeted = false;
 		this.timeSinceLastShot = 0f;
-		this.projectiles = new ArrayList<Projectile>();
+		SetProjectileList(new ArrayList<Projectile>());
 		this.firingSpeed = type.firingSpeed;
 		this.angle = 0f;
 	}
@@ -69,7 +69,7 @@ public abstract class Tower implements Entity {
 	}
 	
 	private float calculateAngle () {
-		double angleTemp = Math.atan2(target.getY() - y, target.getX() - x);
+		double angleTemp = Math.atan2(GetTarget().getY() - y, target.getX() - x);
 		return (float) Math.toDegrees(angleTemp) - 90;	
 	}
 	//abstarct method for 'shoot', must be override in subclasses
@@ -81,15 +81,16 @@ public abstract class Tower implements Entity {
 	
 	public void update(){
 		if (!targeted ) { //|| target.getHiddenHealth() < 0 ) {
-			target = acquireTarget();
+			SetTarget(acquireTarget());
 		} else {
 			angle = calculateAngle();
 			if (timeSinceLastShot > firingSpeed) {
-				shoot(target);
+				shoot(GetTarget());
 				timeSinceLastShot = 0;
 			}
 		}
-		if (target == null || target.isAlive() == false)
+		Armiku tar = GetTarget();
+		if (tar == null || tar.isAlive() == false)
 			targeted = false;
 		
 		timeSinceLastShot += Delta();
@@ -106,6 +107,14 @@ public abstract class Tower implements Entity {
 			for(int i = 1; i < textures.length; i++)
 				VizatoKatrorTexRot(textures[i], x, y, width, height, angle);
 	}
+
+	public void SetTarget(Armiku target) { this.target = target; }
+    public Armiku GetTarget() { return target; }
+	public ArrayList GetProjectileList() { return projectiles; }
+    public void SetProjectileList(ArrayList projectiles) { this.projectiles = projectiles; }
+    public void SetType(TowerType type) { this.type = type; }
+    public TowerType GetTowerType() { return this.type; }
+
 	public float getX() {
 		return x;
 	}

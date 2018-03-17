@@ -48,10 +48,10 @@ public class Game {
 	
 	private void updateUI() {
 		gameUI.draw();
-		gameUI.drawString(902, 250, "Lives: " + Lojtari.Lives);
-		gameUI.drawString(902, 300, "Gold: " + Lojtari.Gold);
+		gameUI.drawString(902, 250, "Lives: " + Lojtari.GetLives());
+		gameUI.drawString(902, 300, "Gold: " + Lojtari.GetGold());
 		gameUI.drawString(902, 350, "Wave: " + valaManager.getWaveNumber());
-		gameUI.drawString(0, 0, StateManger.framesInLastSecond + " fps");
+		gameUI.drawString(0, 0, StateManger.GetFramesInLastSecond() + " fps");
 		
 			if (Mouse.next()) {
 				boolean mouseClicked = Mouse.isButtonDown(0);
