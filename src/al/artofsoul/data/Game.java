@@ -26,21 +26,17 @@ public class Game {
 		armikuLlojet[0] = new ArmikuAlien( 2, 0, grid);
 		armikuLlojet[1] = new ArmikuUFO( 2, 0, grid);
 		armikuLlojet[2] = new ArmikuPlane( 2, 0, grid);
-		/*
-		valaManager = new ValaManager(new Armiku(QuickLoad("armik"), grid.merrPllaka(2, 0), grid, TILE_SIZE, TILE_SIZE, 70, 25),
-		2, 2);
-		*/
 		valaManager = new ValaManager (armikuLlojet, 3, 3);
 		lojtari = new Lojtari(grid, valaManager);
 		lojtari.setup();
 		gameUI = new UI();
-		this.menuBackground = QuickLoad("res/menu/towersBackground"); // tower background photo
+		this.menuBackground = quickLoad("res/menu/towersBackground"); // tower background photo
 		setupUI();
 	}
 	
 	private void setupUI() {
 		gameUI = new UI();
-		gameUI.createMenu("TowerPicker", 896, 50, 64, 480, 1, 0, 0); // 1280 ends of tile, 96 width, 100 padding; //640, 50, 64, 320, 1, 0, 0
+		gameUI.createMenu("TowerPicker", 896, 50, 64, 1); // 1280 ends of tile, 96 width, 100 padding; //640, 50, 64, 320, 1, 0, 0
 		towerPickerMenu = gameUI.getMenu("TowerPicker");
 		towerPickerMenu.quickAdd ("BlueCannon", "/res/player/topiBluefullVog");
 		towerPickerMenu.quickAdd("IceCannon", "/res/player/topiIcefullVog");
@@ -48,25 +44,25 @@ public class Game {
 	
 	private void updateUI() {
 		gameUI.draw();
-		gameUI.drawString(902, 250, "Lives: " + Lojtari.GetLives());
-		gameUI.drawString(902, 300, "Gold: " + Lojtari.GetGold());
+		gameUI.drawString(902, 250, "Lives: " + Lojtari.getLives());
+		gameUI.drawString(902, 300, "Gold: " + Lojtari.getGold());
 		gameUI.drawString(902, 350, "Wave: " + valaManager.getWaveNumber());
-		gameUI.drawString(0, 0, StateManger.GetFramesInLastSecond() + " fps");
+		gameUI.drawString(0, 0, StateManger.getFramesInLastSecond() + " fps");
 		
 			if (Mouse.next()) {
 				boolean mouseClicked = Mouse.isButtonDown(0);
 				if (mouseClicked) {
 					if(towerPickerMenu.isButtonClicked("BlueCannon"))
-						lojtari.pickTower(new TowerCannonBlue(TowerType.CannonBlue, grid.merrPllaka(0, 0), valaManager.getCurrentWave().getArmikuList()));
+						lojtari.pickTower(new TowerCannonBlue(TowerType.CANNON_BLUE, grid.merrPllaka(0, 0), valaManager.getCurrentWave().getArmikuList()));
 					if(towerPickerMenu.isButtonClicked("IceCannon"))
-						lojtari.pickTower(new TowerCannonIce(TowerType.CannonIce, grid.merrPllaka(0, 0), valaManager.getCurrentWave().getArmikuList()));
+						lojtari.pickTower(new TowerCannonIce(TowerType.CANNON_ICE, grid.merrPllaka(0, 0), valaManager.getCurrentWave().getArmikuList()));
 				}
 			}
 		
 		}
 	
 	public void update(){
-		VizatoKatrorTex(menuBackground, 896, 0, 64, 480); //704, 0, 64, 320) vizatojm beckgroundin e buttonave qe do te perdorim gjate lojes
+		vizatoKatrorTex(menuBackground, 896, 0, 64, 480); //704, 0, 64, 320) vizatojm beckgroundin e buttonave qe do te perdorim gjate lojes
 		grid.draw();
 		valaManager.update();
 		lojtari.update();

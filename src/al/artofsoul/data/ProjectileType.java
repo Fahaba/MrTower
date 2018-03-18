@@ -6,8 +6,8 @@ import org.newdawn.slick.opengl.Texture;
 
 public enum ProjectileType {
 	
-	CannonBall(QuickLoad("/res/player/plumbiBlueVog"), 10, 200),
-	IceBall(QuickLoad("/res/player/plumbiIceVog"), 6, 450);
+	CANNON_BALL(quickLoad("/res/player/plumbiBlueVog"), 10, 200),
+	ICE_BALL(quickLoad("/res/player/plumbiIceVog"), 6, 450);
 	
 	Texture texture;
 	int damage;

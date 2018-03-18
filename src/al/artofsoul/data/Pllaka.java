@@ -6,8 +6,10 @@ import org.newdawn.slick.opengl.Texture;
 
 public class Pllaka {
 	
-	private float x, y;
-	private int width, height;
+	private float x;
+	private float y;
+	private int width;
+	private int height;
 	private Texture texture;
 	private PllakaType type;
 	private boolean occupied;
@@ -18,7 +20,7 @@ public class Pllaka {
 		this.width = width;
 		this.height = height;
 		this.type = type;
-		this.texture = QuickLoad(type.textureName);
+		this.texture = quickLoad(type.textureName);
 		if (type.buildable)
 			occupied = false;
 		else
@@ -26,7 +28,7 @@ public class Pllaka {
 	}
 	
 	public void draw(){
-		VizatoKatrorTex(texture, x, y, width, height); // shkurtojm deklarimin tek boot file
+		vizatoKatrorTex(texture, x, y, width, height); // shkurtojm deklarimin tek boot file
 	}
 
 	public float getX() {

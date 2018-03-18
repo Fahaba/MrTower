@@ -1,6 +1,6 @@
 package al.artofsoul.data;
 
-import static al.artofsoul.ndihma.Artist.BeginSession;
+import static al.artofsoul.ndihma.Artist.beginSession;
 
 import org.lwjgl.opengl.Display;
 
@@ -11,7 +11,7 @@ public class MrTower {
 	
 	public MrTower(){
 		//Call static method in Artist class to initialize OpenGL calls
-		BeginSession();
+		beginSession();
 		// main game loop
 		while (!Display.isCloseRequested()) {
 			Ora.update();

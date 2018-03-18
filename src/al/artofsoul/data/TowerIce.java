@@ -1,5 +1,6 @@
 package al.artofsoul.data;
 
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TowerIce extends Tower {
@@ -10,6 +11,6 @@ public class TowerIce extends Tower {
 	
 	@Override
 	public void shoot (Armiku target) {
-		super.GetProjectileList().add(new ProjectileIceball(super.GetTowerType().projectileType, super.GetTarget(), super.getX(), super.getY(), 32, 32));
+		super.getProjectileList().add(new ProjectileIceball(super.getTowerType().projectileType, super.getTarget(), super.getX(), super.getY(), 32, 32));
 	}
 }

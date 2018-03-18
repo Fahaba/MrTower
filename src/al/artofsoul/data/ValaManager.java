@@ -3,7 +3,8 @@ package al.artofsoul.data;
 public class ValaManager {
 	
 	private float timeBetweenEnemies;
-	private int waveNumber, enemiesPerWave;
+	private int waveNumber;
+	private int enemiesPerWave;
 	private Armiku[] armikuLlojet;
 	private Vala currentWave;
 	
@@ -11,7 +12,6 @@ public class ValaManager {
 		this.armikuLlojet = armikuLlojet;
 		this.timeBetweenEnemies = timeBetweenEnemies;
 		this.enemiesPerWave = enemiesPerWave;
-		//this.timeSinceLastWave = 0;
 		this.waveNumber = 0;
 		this.currentWave = null;
 		newWave();

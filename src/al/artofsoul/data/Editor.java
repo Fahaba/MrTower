@@ -20,23 +20,23 @@ public class Editor{
 	private Texture menuBackground;
 
 	public Editor() {
-		this.grid = LoadMap("res/MAP/harta");
+		this.grid = loadMap("res/map/harta");
 		this.index = 0;
 		this.types = new PllakaType[3];
-		this.types[0] = PllakaType.Grass;
-		this.types[1] = PllakaType.Dirt;
-		this.types[2] = PllakaType.Water;
-		this.menuBackground = QuickLoad("/res/menu/tileBackground");
+		this.types[0] = PllakaType.GRASS;
+		this.types[1] = PllakaType.DIRT;
+		this.types[2] = PllakaType.WATER;
+		this.menuBackground = quickLoad("/res/menu/tileBackground");
 		setupUI();
 	}
 	
 	private void setupUI () {
 		editorUI = new UI();
-		editorUI.createMenu("TilePicker", 896, 50, 64, 480, 1, 0, 0); //640, 50, 64, 320, 1, 0, 0 for 32
+		editorUI.createMenu("TilePicker", 896, 50, 64, 0); //640, 50, 64, 320, 1, 0, 0 for 32
 		tilePickerMenu = editorUI.getMenu("TilePicker");
-		tilePickerMenu.quickAdd("Grass", "/res/tiles/bari32");
-		tilePickerMenu.quickAdd("Dirt", "/res/tiles/toka32");
-		tilePickerMenu.quickAdd("Water", "/res/tiles/uj32");
+		tilePickerMenu.quickAdd("GRASS", "/res/tiles/bari32");
+		tilePickerMenu.quickAdd("DIRT", "/res/tiles/toka32");
+		tilePickerMenu.quickAdd("WATER", "/res/tiles/uj32");
 		
 	}
 
@@ -44,19 +44,16 @@ public class Editor{
 		draw();
 
 		// Handle Mouse Input
-		if (Mouse.next()) {
-			boolean mouseClicked = Mouse.isButtonDown(0);
-			if (mouseClicked) {
-				if(tilePickerMenu.isButtonClicked("Grass")) {
-					index = 0;
-				} else if (tilePickerMenu.isButtonClicked("Dirt")){
-					index = 1;
-				} else if (tilePickerMenu.isButtonClicked("Water")){
-					index = 2;
-				}else {
-					shtoPllaka();
-				}
-			}
+		if (Mouse.next() && Mouse.isButtonDown(0)) {
+            if(tilePickerMenu.isButtonClicked("GRASS")) {
+                index = 0;
+            } else if (tilePickerMenu.isButtonClicked("DIRT")){
+                index = 1;
+            } else if (tilePickerMenu.isButtonClicked("WATER")){
+                index = 2;
+            }else {
+                shtoPllaka();
+            }
 		}
 		
 		// Handle keyboard input
@@ -65,16 +62,16 @@ public class Editor{
 					&& Keyboard.getEventKeyState()) {
 				moveIndex();
 			}
-			// saving editor MAP create by user with S key from keyboard
+			// saving editor map create by user with S key from keyboard
 			if (Keyboard.getEventKey() == Keyboard.KEY_S
 					&& Keyboard.getEventKeyState()) {
-				SaveMap("res/MAP/harta", grid);
+				saveMap("res/map/harta", grid);
 			}
 		}
 	}
 	
 	private void draw () {
-		VizatoKatrorTex(menuBackground, 896, 0, 64, 480); //(QuickLoad("tileBackground"), 1280, 0, 96, 640); 
+		vizatoKatrorTex(menuBackground, 896, 0, 64, 480);
 		grid.draw();
 		editorUI.draw();
 	}

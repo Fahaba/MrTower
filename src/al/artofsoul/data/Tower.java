@@ -1,27 +1,39 @@
 package al.artofsoul.data;
 
-import static al.artofsoul.ndihma.Artist.VizatoKatrorTex;
-import static al.artofsoul.ndihma.Artist.VizatoKatrorTexRot;
-import static al.artofsoul.ndihma.Ora.Delta;
+import static al.artofsoul.ndihma.Artist.vizatoKatrorTex;
+import static al.artofsoul.ndihma.Artist.vizatoKatrorTexRot;
+import static al.artofsoul.ndihma.Ora.delta;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.newdawn.slick.opengl.Texture;
 
 public abstract class Tower implements Entity {
-	
-	private float x, y, timeSinceLastShot, firingSpeed, angle;
-	private int width, height, range, cost;
+
+
+    public static final String topiBazaVog = "/res/player/topiBazaVog";
+    public static final String  topiRedplumbiVog = "/res/player/topiRedplumbiVog";
+
+	private float x;
+    private float y;
+    private float timeSinceLastShot;
+    private float firingSpeed;
+    private float angle;
+	private int width;
+    private int height;
+    private int range;
+    private int cost;
 	private Armiku target;
 	private Texture[] textures;
 	private CopyOnWriteArrayList<Armiku> armiqt;
 	private boolean targeted;
-	private ArrayList<Projectile> projectiles;
+	private List<Projectile> projectiles;
 	private TowerType type;
 
 	public Tower(TowerType type, Pllaka filloPllaka, CopyOnWriteArrayList<Armiku> armiqt) {
-		SetType(type);
+		setType(type);
 		this.textures = type.textures;
 		this.range = type.range;
 		this.cost = type.cost;
@@ -32,7 +44,7 @@ public abstract class Tower implements Entity {
 		this.armiqt = armiqt;
 		this.targeted = false;
 		this.timeSinceLastShot = 0f;
-		SetProjectileList(new ArrayList<Projectile>());
+		setProjectileList(new ArrayList<Projectile>());
 		this.firingSpeed = type.firingSpeed;
 		this.angle = 0f;
 	}
@@ -57,9 +69,7 @@ public abstract class Tower implements Entity {
 	private boolean isInRange(Armiku e) {
 		float xDistance = Math.abs(e.getX() - x);
 		float yDistance = Math.abs(e.getY() - y);
-		if (xDistance < range && yDistance < range)
-			return true;
-		return false;
+		return (xDistance < range && yDistance < range);
 	}
 	
 	private float findDistance(Armiku e) {
@@ -69,7 +79,7 @@ public abstract class Tower implements Entity {
 	}
 	
 	private float calculateAngle () {
-		double angleTemp = Math.atan2(GetTarget().getY() - y, target.getX() - x);
+		double angleTemp = Math.atan2(getTarget().getY() - y, target.getX() - x);
 		return (float) Math.toDegrees(angleTemp) - 90;	
 	}
 	//abstarct method for 'shoot', must be override in subclasses
@@ -80,20 +90,20 @@ public abstract class Tower implements Entity {
 	}
 	
 	public void update(){
-		if (!targeted ) { //|| target.getHiddenHealth() < 0 ) {
-			SetTarget(acquireTarget());
+		if (!targeted ) {
+			setTarget(acquireTarget());
 		} else {
 			angle = calculateAngle();
 			if (timeSinceLastShot > firingSpeed) {
-				shoot(GetTarget());
+				shoot(getTarget());
 				timeSinceLastShot = 0;
 			}
 		}
-		Armiku tar = GetTarget();
-		if (tar == null || tar.isAlive() == false)
+		Armiku tar = getTarget();
+		if (tar == null || !tar.isAlive())
 			targeted = false;
 		
-		timeSinceLastShot += Delta();
+		timeSinceLastShot += delta();
 		
 		for (Projectile p: projectiles)
 			p.update();
@@ -102,18 +112,17 @@ public abstract class Tower implements Entity {
 	}
 
 	public void draw() {
-		VizatoKatrorTex(textures[0], x, y, width, height);
+		vizatoKatrorTex(textures[0], x, y, width, height);
 		if (textures.length > 1)
 			for(int i = 1; i < textures.length; i++)
-				VizatoKatrorTexRot(textures[i], x, y, width, height, angle);
+				vizatoKatrorTexRot(textures[i], x, y, width, height, angle);
 	}
 
-	public void SetTarget(Armiku target) { this.target = target; }
-    public Armiku GetTarget() { return target; }
-	public ArrayList GetProjectileList() { return projectiles; }
-    public void SetProjectileList(ArrayList projectiles) { this.projectiles = projectiles; }
-    public void SetType(TowerType type) { this.type = type; }
-    public TowerType GetTowerType() { return this.type; }
+	public void setTarget(Armiku target) { this.target = target; }
+	public List getProjectileList() { return projectiles; }
+    public void setProjectileList(List projectiles) { this.projectiles = projectiles; }
+    public void setType(TowerType type) { this.type = type; }
+    public TowerType getTowerType() { return this.type; }
 
 	public float getX() {
 		return x;
@@ -147,9 +156,7 @@ public abstract class Tower implements Entity {
 		this.height = height;	
 	}
 	
-	public Armiku getTarget() {
-		return target;
-	}
+	public Armiku getTarget() { return target; }
 	public int getCost() {
 		return cost;
 	}

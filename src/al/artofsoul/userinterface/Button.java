@@ -6,7 +6,10 @@ public class Button {
 	
 	private String name;
 	private Texture texture;
-	private int x, y, width, height;
+	private int x;
+	private int y;
+	private int width;
+	private int height;
 	
 	public Button(String name, Texture texture, int x, int y, int width, int height) {
 		this.name = name;

@@ -12,14 +12,19 @@ import al.artofsoul.data.PllakaFusha;
 import al.artofsoul.data.PllakaType;
 
 public class Leveler {
-	
-	public static void SaveMap(String mapName, PllakaFusha grid) {
-		String mapData = "";
+
+    private Leveler() {
+        throw new IllegalStateException("Utility class");
+    }
+
+	public static void saveMap(String mapName, PllakaFusha grid) {
+		StringBuilder mapDataBuilder = new StringBuilder();
 		for (int i = 0; i < grid.getPllakaWide(); i++) {
 			for (int j = 0; j < grid.getPllakaHigh(); j++) {
-				mapData += getTileID(grid.merrPllaka(i, j));
+				mapDataBuilder.append(getTileID(grid.merrPllaka(i, j)));
 			}
 		}
+		String mapData = mapDataBuilder.toString();
 		try {
             File file = new File(mapName);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -30,7 +35,7 @@ public class Leveler {
 		}
 	}
 	
-	public static PllakaFusha LoadMap(String mapName) {
+	public static PllakaFusha loadMap(String mapName) {
 		PllakaFusha grid = new PllakaFusha();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(mapName));
@@ -48,21 +53,23 @@ public class Leveler {
 		return grid;
 	}
 	
-	public static PllakaType getTileType(String ID) {
+	public static PllakaType getTileType(String id) {
 		PllakaType type = PllakaType.NULL;
-		switch (ID) {
+		switch (id) {
 		case "0":
-			type = PllakaType.Grass;
+			type = PllakaType.GRASS;
 			break;
 		case "1":
-			type = PllakaType.Dirt;
+			type = PllakaType.DIRT;
 			break;
 		case "2":
-			type = PllakaType.Water;
+			type = PllakaType.WATER;
 			break;
 		case "3":
 			type = PllakaType.NULL;
 			break;
+		default:
+		    break;
 		}
 		
 		
@@ -71,21 +78,21 @@ public class Leveler {
 	
 	public static String getTileID(Pllaka t) {
 	 
-		String ID = "E";
+		String id = "E";
 		switch(t.getType()){
-		case Grass:
-			ID = "0";
+		case GRASS:
+			id = "0";
 			break;
-		case Dirt:
-			ID = "1";
+		case DIRT:
+			id = "1";
 			break;
-		case Water:
-			ID = "2";
+		case WATER:
+			id = "2";
 			break;
 		case NULL:
-			ID = "3";
+			id = "3";
 			break;
 		}
-		return ID;
+		return id;
 	}
 }

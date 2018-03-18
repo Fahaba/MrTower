@@ -16,60 +16,63 @@ public class Lojtari {
 	private PllakaType[] types;
 	private ValaManager valaManager;
 	private ArrayList<Tower> towerList;
-	private boolean leftMouseButtonDown, rightMouseButtonDown, holdingTower;
+	private boolean leftMouseButtonDown;
+    private boolean rightMouseButtonDown;
+    private boolean holdingTower;
 	private Tower tempTower;
-	private static int Gold, Lives;
+	private static int gold;
+    private static int lives;
 	
 	public Lojtari(PllakaFusha grid, ValaManager valaManager ){
 		this.grid = grid;
 		this.types = new PllakaType[3];
-		this.types[0] = PllakaType.Grass;
-		this.types[1] = PllakaType.Dirt;
-		this.types[2] = PllakaType.Water;
+		this.types[0] = PllakaType.GRASS;
+		this.types[1] = PllakaType.DIRT;
+		this.types[2] = PllakaType.WATER;
 		this.valaManager = valaManager;
-		this.towerList = new ArrayList<Tower>();
+		this.towerList = new ArrayList<>();
 		this.leftMouseButtonDown = false;
 		this.rightMouseButtonDown = false;
 		this.holdingTower = false;
 		this.tempTower = null;
-		SetGold(0);
-		SetLives(0);
+		setGold(0);
+		setLives(0);
 		
 	}
-	// Initialize Gold and Lives values for player
+	// Initialize gold and lives values for player
 	public void setup() {
-		SetGold(200);
-		SetLives(10);
+		setGold(200);
+		setLives(10);
 	}
 	// check if player can afford tower, if so: change player tower cost
 	public static boolean modifyGold(int amount) {
-		if (GetGold() + amount >= 0) {
-			SetGold(GetGold() + amount);
-			System.out.println(GetGold());
+		if (getGold() + amount >= 0) {
+			setGold(getGold() + amount);
+			System.out.println(getGold());
 			return true;
 		}
 		System.out.println("Glod");
 		return false;
 	}
 
-	private static void SetGold(int amount) {
-	    Gold = amount;
+	private static void setGold(int amount) {
+	    gold = amount;
     }
 
-    public static int GetGold() {
-        return Gold;
+    public static int getGold() {
+        return gold;
     }
 	
 	public static void modifyLives(int amount) {
-		Lives += amount;
+		lives += amount;
 	}
 
-    private static void SetLives(int amount) {
-        Lives = amount;
+    private static void setLives(int amount) {
+        lives = amount;
     }
 
-    public static int GetLives() {
-        return Lives;
+    public static int getLives() {
+        return lives;
     }
 
 	public void update(){
@@ -93,9 +96,6 @@ public class Lojtari {
 		}
 		if (Mouse.isButtonDown(1) && !rightMouseButtonDown){
 			System.out.println("Use other Clicked");
-			/*if (modifyGold(-55))
-				towerList.add(new TowerCannonIce(TowerType.CannonIce, grid.merrPllaka(Mouse.getX() / TILE_SIZE, (HEIGHT - Mouse.getY() - 1) / TILE_SIZE), valaManager.getCurrentWave().getArmikuList()));
-				*/
 		}
 		
 		leftMouseButtonDown = Mouse.isButtonDown(0);
@@ -104,19 +104,17 @@ public class Lojtari {
 		// Handle keyboard input
 		while (Keyboard.next()){
 			if (Keyboard.getEventKey() == Keyboard.KEY_RIGHT && Keyboard.getEventKeyState()){
-				Ora.ChangeMultiplier(0.2f);
-				//moveIndex();
+				Ora.changeMultiplier(0.2f);
 			}
 			if (Keyboard.getEventKey() == Keyboard.KEY_LEFT && Keyboard.getEventKeyState()){
-				Ora.ChangeMultiplier(-0.2f);
+				Ora.changeMultiplier(-0.2f);
 			}
 		}
 	}
 	
 	private void placeTower() {
 		Pllaka currentTile = getMouseTile();
-		if (holdingTower)
-			if (currentTile.getOccupied() == false && modifyGold(- tempTower.getCost())) { // how much cost one Cannon
+		if (holdingTower && !currentTile.getOccupied() && modifyGold(- tempTower.getCost())) { // how much cost one Cannon
 				towerList.add(tempTower);
 				currentTile.setOccupied(true);
 				holdingTower = false;

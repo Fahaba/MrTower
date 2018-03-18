@@ -10,7 +10,6 @@ public class TowerCannonBlue extends Tower {
 	
 	@Override
 	public void shoot (Armiku target) {
-		super.GetProjectileList().add(new ProjectileCannonball(super.GetTowerType().projectileType, super.GetTarget(), super.getX(), super.getY(), 32, 32));
-		//super.target.reduceHiddenHealth(super.type.projectileType.damage);
+		super.getProjectileList().add(new ProjectileCannonball(super.getTowerType().projectileType, super.getTarget(), super.getX(), super.getY(), 32, 32));
 	}
 }

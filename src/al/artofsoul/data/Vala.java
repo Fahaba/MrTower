@@ -8,10 +8,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Vala {
 
-	private float timeSinceLastSpawn, spawnTime;
+	private float timeSinceLastSpawn;
+	private float spawnTime;
 	private Armiku[] armikuLlojet;
 	private CopyOnWriteArrayList<Armiku> armikuList;
-	private int enemiesPerWave, enemiesSpawned;
+	int enemiesPerWave;
+	int enemiesSpawned;
 	private boolean waveCompleted;
 
 	public Vala(Armiku[] armikuLlojet, float spawnTime, int enemiesPerWave) {
@@ -20,7 +22,7 @@ public class Vala {
 		this.enemiesPerWave = enemiesPerWave;
 		this.timeSinceLastSpawn = 0;
 		this.enemiesSpawned = 0; 
-		this.armikuList = new CopyOnWriteArrayList<Armiku>();
+		this.armikuList = new CopyOnWriteArrayList<>();
 		this.waveCompleted = false;
 		
 		spawn();
@@ -30,7 +32,7 @@ public class Vala {
 		//Assume all enemies are dead, until for loop proves otherwise
 		boolean allEnemiesDead = true;
 		if (enemiesSpawned < enemiesPerWave){
-			timeSinceLastSpawn += Delta();
+			timeSinceLastSpawn += delta();
 			if (timeSinceLastSpawn > spawnTime) {
 				spawn();
 				timeSinceLastSpawn = 0;

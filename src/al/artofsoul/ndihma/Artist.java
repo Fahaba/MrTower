@@ -21,10 +21,15 @@ import org.newdawn.slick.util.ResourceLoader;
 
 public class Artist {
 	
-	public static final int WIDTH =960, HEIGHT = 480; //960 3X32 - 894 640, 
+	public static final int WIDTH =960;
+    public static final int HEIGHT = 480; //960 3X32 - 894 640,
 	public static final int TILE_SIZE = 32;
-	
-	public static void BeginSession(){
+
+	private Artist() {
+		throw new IllegalStateException("Utility class");
+	}
+
+	public static void beginSession(){
 		
 		Display.setTitle("Mr Tower");
 		try {
@@ -45,14 +50,14 @@ public class Artist {
 	}
 	
 	public static boolean CheckCollosion (float x1, float y1, float width1, float height1,
-			float x2, float y2, float width2, float height2) {
-		if (x1 + width1 > x2 && x1 < x2 + width2 && y1 + height1 > y2 && y1 > y2 + height1)
-			return true;
-		return false;
-		
+			float x2, float y2, float width2) {
+		return (x1 + width1 > x2
+                && x1 < x2 + width2
+                && y1 + height1 > y2
+                && y1 > y2 + height1);
 	}
 	
-	public static void VizatoKatror(float x, float y, float width, float height) {
+	public static void vizatoKatror(float x, float y, float width, float height) {
 		//deklarimi i katerorit
 		glBegin(GL_QUADS);
 		glVertex2f(x, y); // Top left corner
@@ -63,7 +68,7 @@ public class Artist {
 		
 	}
 	
-	public static void VizatoKatrorTex(Texture tex, float x, float y, float width, float height){
+	public static void vizatoKatrorTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
@@ -80,7 +85,7 @@ public class Artist {
 		
 	}
 	
-	public static void VizatoKatrorTexRot(Texture tex, float x, float y, float width, float height, float angle){
+	public static void vizatoKatrorTexRot(Texture tex, float x, float y, float width, float height, float angle){
 		tex.bind();
 		glTranslatef(x + width / 2, y + height / 2, 0);
 		glRotatef(angle, 0, 0, 1);
@@ -100,7 +105,7 @@ public class Artist {
 	}
 
 
-	public static Texture LoadTexture(String path, String filetype) {
+	public static Texture loadTexture(String path, String filetype) {
 		Texture tex = null;
 		InputStream in = ResourceLoader.getResourceAsStream(path);
 		try {
@@ -111,9 +116,9 @@ public class Artist {
 		return tex;
 	}
 	
-	public static Texture QuickLoad(String name){
+	public static Texture quickLoad(String name){
 		Texture tex = null;
-		tex = LoadTexture("" + name + ".png", "PNG");
+		tex = loadTexture("" + name + ".png", "PNG");
 		return tex;
 	}
 }

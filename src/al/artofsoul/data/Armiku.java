@@ -8,11 +8,21 @@ import java.util.ArrayList;
 import org.newdawn.slick.opengl.Texture;
 
 public class Armiku implements Entity{
-	private int width, height, currentCheckpoint;
-	private float speed, x, y, health, startHealth;// hiddenHealth;
-	private Texture texture, healthBackground, healthForeground, healthBorder;
+	private int width;
+	private int height;
+	private int currentCheckpoint;
+	private float speed;
+	private float x;
+	private float y;
+	private float health;
+	private float startHealth;// hiddenHealth;
+	private Texture texture;
+	private Texture healthBackground;
+	private Texture healthForeground;
+	private Texture healthBorder;
 	private Pllaka filloPllaka;
-	private boolean first, alive;
+	private boolean first;
+	private boolean alive;
 	private PllakaFusha grid;
 	
 	private ArrayList<Checkpoint> checkpoints;
@@ -20,10 +30,10 @@ public class Armiku implements Entity{
 	
 	//default constructor
 	public Armiku(int tilleX, int tileY, PllakaFusha grid) {
-		this.texture = QuickLoad("/res/armiku/armikBlue32");
-		this.healthBackground = QuickLoad("/res/armiku/healthBack"); // enemy statusi photo
-		this.healthForeground = QuickLoad("/res/armiku/healthForeg");
-		this.healthBorder = QuickLoad("/res/armiku/healthBord");
+		this.texture = quickLoad("/res/armiku/armikBlue32");
+		this.healthBackground = quickLoad("/res/armiku/healthBack"); // enemy statusi photo
+		this.healthForeground = quickLoad("/res/armiku/healthForeg");
+		this.healthBorder = quickLoad("/res/armiku/healthBord");
 		this.filloPllaka = grid.merrPllaka(tilleX, tileY);
 		this.x = filloPllaka.getX();
 		this.y = filloPllaka.getY();
@@ -35,7 +45,7 @@ public class Armiku implements Entity{
 		this.grid = grid;
 		this.first = true;
 		this.alive = true;
-		this.checkpoints = new ArrayList<Checkpoint>();
+		this.checkpoints = new ArrayList<>();
 		this.directions = new int [2];
 		// x direction
 		this.directions[0] = 0;
@@ -50,9 +60,9 @@ public class Armiku implements Entity{
 	public Armiku(Texture texture, Pllaka filloPllaka, PllakaFusha grid, int width, 
 			int height, float speed, float health){
 		this.texture = texture;
-		this.healthBackground = QuickLoad("/res/armiku/healthBack"); // enemy statusi photo
-		this.healthForeground = QuickLoad("/res/armiku/healthForeg");
-		this.healthBorder = QuickLoad("/res/armiku/healthBord");
+		this.healthBackground = quickLoad("/res/armiku/healthBack"); // enemy statusi photo
+		this.healthForeground = quickLoad("/res/armiku/healthForeg");
+		this.healthBorder = quickLoad("/res/armiku/healthBord");
 		this.filloPllaka = filloPllaka;
 		this.x = filloPllaka.getX();
 		this.y = filloPllaka.getY();
@@ -61,11 +71,10 @@ public class Armiku implements Entity{
 		this.speed = speed;
 		this.health = health;
 		this.startHealth = health;
-		//this.hiddenHealth = health;
 		this.grid = grid;
 		this.first = true;
 		this.alive = true;
-		this.checkpoints = new ArrayList<Checkpoint>();
+		this.checkpoints = new ArrayList<>();
 		this.directions = new int [2];
 		// x direction
 		this.directions[0] = 0;
@@ -85,13 +94,12 @@ public class Armiku implements Entity{
 				//check if there are more checkpoints before moving on
 				if (currentCheckpoint + 1 == checkpoints.size())
 					endOfMazeReached();
-					//System.out.println("Enamy reached end of maze");
 				else
 					currentCheckpoint++;
 			} else {
 				// if not at a checkpoint, continue in current direction
-				x += Delta() * checkpoints.get(currentCheckpoint).getxDirection() * speed;
-				y += Delta() * checkpoints.get(currentCheckpoint).getyDirection() * speed;
+				x += delta() * checkpoints.get(currentCheckpoint).getxDirection() * speed;
+				y += delta() * checkpoints.get(currentCheckpoint).getyDirection() * speed;
 			}
 		}
 	}
@@ -119,7 +127,8 @@ public class Armiku implements Entity{
 	
 	private void populateCheckpointlist() {
 		//Add first checkpoint manually based on filloPllaka
-		checkpoints.add(findNextC(filloPllaka, directions = findNextD(filloPllaka)));
+        directions = findNextD(filloPllaka);
+		checkpoints.add(findNextC(filloPllaka, directions));
 		
 		int counter = 0;
 		boolean cont = true;
@@ -129,8 +138,8 @@ public class Armiku implements Entity{
 			if (currentD[0] == 2 || counter == 20) {
 				cont = false;
 			} else {
-				checkpoints.add(findNextC(checkpoints.get(counter).getPllaka(),
-						directions = findNextD(checkpoints.get(counter).getPllaka())));
+                directions = findNextD(checkpoints.get(counter).getPllaka());
+				checkpoints.add(findNextC(checkpoints.get(counter).getPllaka(), directions));
 			}
 			counter++;
 		}
@@ -185,7 +194,6 @@ public class Armiku implements Entity{
 		} else {
 			dir[0] = 2;
 			dir[1] = 2;
-			//System.out.println("No dierction found");
 		}
 		return dir;
 	}
@@ -206,25 +214,13 @@ public class Armiku implements Entity{
 	public void draw(){
 		float healthPercentage = health / startHealth;
 		// enemy texture 
-		VizatoKatrorTex(texture, x, y, width, height);
+		vizatoKatrorTex(texture, x, y, width, height);
 		// health bar textures
-		VizatoKatrorTex(healthBackground, x, y - 16, width, 8);
-		VizatoKatrorTex(healthForeground, x, y - 16, TILE_SIZE * healthPercentage, 8);
-		VizatoKatrorTex(healthBorder, x, y - 16, width, 8);
+		vizatoKatrorTex(healthBackground, x, y - 16, width, 8);
+		vizatoKatrorTex(healthForeground, x, y - 16, TILE_SIZE * healthPercentage, 8);
+		vizatoKatrorTex(healthBorder, x, y - 16, width, 8);
 	}
 
-	/*
-	 * 
-
-	
-	public void reduceHiddenHealth(float amount) {
-		hiddenHealth -= amount;
-	}
-
-	public float getHiddenHealth() {
-		return hiddenHealth;
-	}
-	 */
 	public int getWidth() {
 		return width;
 	}
@@ -282,7 +278,7 @@ public class Armiku implements Entity{
 	}
 	
 	public void setTexture (String textureName) {
-		this.texture = QuickLoad(textureName);
+		this.texture = quickLoad(textureName);
 	}
 
 	public Pllaka getFilloPllaka() {

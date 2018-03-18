@@ -3,7 +3,8 @@ package al.artofsoul.data;
 public class Checkpoint {
 	
 	private Pllaka pllaka;
-	private int xDirection, yDirection;
+	private int xDirection;
+	private int yDirection;
 	
 	public Checkpoint (Pllaka pllaka, int xDirection, int yDirection) {
 		this.pllaka = pllaka;

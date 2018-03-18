@@ -15,7 +15,7 @@ public class MainMenu {
 	private UI menuUI;
 	// add the button on screen
 	public MainMenu() {
-		background = QuickLoad("/res/menu/mainPhoto32");
+		background = quickLoad("/res/menu/mainPhoto32");
 		menuUI = new UI();
 		menuUI.addButton("Play", "/res/menu/playButton", WIDTH / 2 - 128, (int) (HEIGHT * 0.33f));
 		menuUI.addButton("Editor", "/res/menu/editorButton", WIDTH / 2 - 128, (int) (HEIGHT * 0.50f));
@@ -34,7 +34,7 @@ public class MainMenu {
 	}
 	
 	public void update () {
-		VizatoKatrorTex (background, 0, 0, 1400, 770); // fotot e ekranit
+		vizatoKatrorTex(background, 0, 0, 1400, 770); // fotot e ekranit
 		menuUI.draw();
 		updateButtons();
 	}

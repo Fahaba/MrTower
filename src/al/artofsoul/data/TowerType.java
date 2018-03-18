@@ -1,17 +1,17 @@
 package al.artofsoul.data;
 
+import static al.artofsoul.data.Tower.topiBazaVog;
 import static al.artofsoul.ndihma.Artist.*;
 
 import org.newdawn.slick.opengl.Texture;
 
 public enum TowerType {
-	
-	CannonRed(new Texture[]{QuickLoad("/res/player/topiBazaVog"), QuickLoad("/res/player/topiRedplumbiVog")}, ProjectileType.CannonBall, 10, 1000, 3, 0),
-	CannonBlue(new Texture[]{QuickLoad("/res/player/topiBazaVog"), QuickLoad("/res/player/topiBlueplumbiVog")}, ProjectileType.CannonBall, 30, 1000, 3, 15),
-	CannonIce(new Texture[]{QuickLoad("/res/player/topiBazaVog"), QuickLoad("/res/player/topiIceplumbiVog")}, ProjectileType.IceBall, 10, 1000, 3, 20),;
-	
-	
-	Texture[] textures;
+
+	CANNON_RED(new Texture[]{quickLoad(topiBazaVog), quickLoad("/res/player/topiRedplumbiVog")}, ProjectileType.CANNON_BALL, 10, 1000, 3, 0),
+	CANNON_BLUE(new Texture[]{quickLoad(topiBazaVog), quickLoad("/res/player/topiBlueplumbiVog")}, ProjectileType.CANNON_BALL, 30, 1000, 3, 15),
+	CANNON_ICE(new Texture[]{quickLoad(topiBazaVog), quickLoad("/res/player/topiIceplumbiVog")}, ProjectileType.ICE_BALL, 10, 1000, 3, 20),;
+
+    Texture[] textures;
 	ProjectileType projectileType;
 	int damage, range, cost;
 	float firingSpeed;

@@ -8,8 +8,14 @@ import org.newdawn.slick.opengl.Texture;
 public abstract class Projectile implements Entity {
 
 	private Texture texture;
-	private float x, y, speed, xVelocity, yVelocity;
-	private int damage, width, height;
+	private float x;
+	private float y;
+	private float speed;
+	private float xVelocity;
+	private float yVelocity;
+	private int damage;
+	private int width;
+	private int height;
 	private Armiku target;
 	private boolean alive;
 	
@@ -50,17 +56,16 @@ public abstract class Projectile implements Entity {
 	
 	public void update() {
 		if (alive) {
-			//calculateDirection();
-			x += xVelocity * speed * Delta();
-			y += yVelocity * speed * Delta();
+			x += xVelocity * speed * delta();
+			y += yVelocity * speed * delta();
 			if (CheckCollosion (x, y, width, height, target.getX(), 
-					target.getY(), target.getWidth(), target.getHeight()))
+					target.getY(), target.getWidth()))
 				damage();
 			draw();
 		}
 	}
 	 public void draw() {
-		 VizatoKatrorTex(texture, x, y, 32, 32);
+		 vizatoKatrorTex(texture, x, y, 32, 32);
 	 }
 
 	public float getX() {

@@ -5,9 +5,14 @@ import org.lwjgl.Sys;
 public class Ora {
 	
 	private static boolean paused = false;
-	private static long lastFrame, totalTime;
-	private static float d = 0, multiplier = 1;
-	
+	private static long lastFrame;
+    private static long totalTime;
+	private static float d = 0;
+    private static float multiplier = 1;
+
+	private Ora() {
+		throw new IllegalStateException("Utility class");
+	}
 	
 	public static long merrKohen(){
 		return Sys.getTime() * 1000 / Sys.getTimerResolution();
@@ -17,42 +22,38 @@ public class Ora {
 		long currentTime = merrKohen();
 		int delta = (int) (currentTime - lastFrame);
 		lastFrame = merrKohen();
-		//System.out.println(delta * 0.01f);
 		if (delta * 0.001f > 0.05f)
 			return 0.05f;
 		return delta * 0.001f;
 	}
 	
-	public static float Delta(){
+	public static float delta(){
 		if (paused)
 			return 0;
 		else
 			return d * multiplier;
 	}
 	
-	public static float TotalTime (){
+	public static float totalTime(){
 		return totalTime;
 	}
 	
-	public static float Multiplier(){
+	public static float multiplier(){
 		return multiplier;
 	}
 	
 	public static void update(){
 		d = merrDelta();
-		totalTime += d; // njesoj: totalTime = totalTime + d;
+		totalTime += d;
 		
 	}
 	
-	public static void ChangeMultiplier(float change){
-		if (multiplier + change < -1 && multiplier + change >  7){
-			} else {
-				multiplier += change;
-		}
-		
+	public static void changeMultiplier(float change){
+		if (!(multiplier + change < -1 && multiplier + change >  7))
+            multiplier += change;
 	}
 	
-	public static void Pause(){
+	public static void pause(){
 		if (paused)
 			paused = false;
 		else

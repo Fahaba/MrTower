@@ -1,6 +1,6 @@
 package al.artofsoul.ndihma;
 
-import static al.artofsoul.ndihma.Leveler.LoadMap;
+import static al.artofsoul.ndihma.Leveler.loadMap;
 
 import al.artofsoul.data.Editor;
 import al.artofsoul.data.Game;
@@ -8,8 +8,12 @@ import al.artofsoul.data.MainMenu;
 import al.artofsoul.data.PllakaFusha;
 
 public class StateManger {
-	
-	public static enum GameState {
+
+    private StateManger() {
+        throw new IllegalStateException("Utility class");
+    }
+
+	public enum GameState {
 		MAINMENU, GAME, EDITOR
 	}
 	
@@ -22,7 +26,7 @@ public class StateManger {
 	private static int framesInLastSecond = 0;
 	private static int framesInCurrentSecond = 0;
 	
-	static PllakaFusha map = LoadMap("res/MAP/harta"); // when the MAP is reading
+	static PllakaFusha map = loadMap("res/map/harta"); // when the map is reading
 		
 		/*
 			{0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1},
@@ -71,6 +75,6 @@ public class StateManger {
 		gameState = newState;
 	}
 
-	public static int GetFramesInLastSecond() { return framesInLastSecond; }
+	public static int getFramesInLastSecond() { return framesInLastSecond; }
 
 }
