@@ -108,7 +108,7 @@ public class UI {
 
 			if (b == null) return false;
 
-			float mouseY = HEIGHT - (float)Mouse.getY() - 1;
+			float mouseY = HEIGHT - (float)Mouse.getY() - 1.0f;
 			return (Mouse.getX() > b.getX()
                     && Mouse.getX() < b.getX() + b.getWidth()
                     && mouseY > b.getY()

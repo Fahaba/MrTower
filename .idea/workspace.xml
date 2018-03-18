@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b713b7ca-af48-435c-afc3-8dbeda90def2" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/Pllaka/Pllaka.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/pllaka/Pllaka.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/Pllaka/PllakaFusha.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/pllaka/PllakaFusha.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/Pllaka/PllakaType.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/pllaka/PllakaType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/Checkpoint.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/Checkpoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/Lojtari.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/Lojtari.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/Armiku.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/Armiku.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuAlien.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuAlien.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuPlane.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuPlane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuUFO.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuUFO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/vala/Vala.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/vala/Vala.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/main/Editor.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/main/Editor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/main/Game.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/main/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/ndihma/Leveler.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/ndihma/Leveler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/ndihma/StateManger.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/ndihma/StateManger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/tower/Tower.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/tower/Tower.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerCannonBlue.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerCannonBlue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerCannonIce.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerCannonIce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerIce.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/tower/TowerIce.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java" afterPath="$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Vala.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Vala.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/vala/Vala.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -88,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="281">
@@ -114,8 +98,8 @@
       <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+            <state relative-caret-position="306">
+              <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +110,8 @@
       <file leaf-file-name="Artist.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+            <state relative-caret-position="332">
+              <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -182,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/TowerIce.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/TowerType.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/Vala.java" />
-        <option value="$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/tower/TowerType.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/projectile/ProjectileType.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/armiku/ArmikuUFO.java" />
@@ -192,13 +175,14 @@
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/vala/ValaManager.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/Pllaka/Pllaka.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/main/MrTower.java" />
-        <option value="$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/Entity.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/armiku/Armiku.java" />
-        <option value="$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/ndihma/Leveler.java" />
         <option value="$PROJECT_DIR$/src/al/artofsoul/data/vala/Vala.java" />
+        <option value="$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java" />
+        <option value="$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java" />
       </list>
     </option>
   </component>
@@ -893,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="111" column="43" lean-forward="true" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/projectile/ProjectileIceball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -927,16 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/armiku/Armiku.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -952,16 +918,6 @@
         <state relative-caret-position="68">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -983,6 +939,34 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/ndihma/Artist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/data/projectile/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/al/artofsoul/userinterface/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="111" column="43" lean-forward="true" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

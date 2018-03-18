@@ -36,8 +36,8 @@ public abstract class Projectile extends Entity {
 		Armiku target = getTarget();
 		float x = getX();
 		float y = getY();
-		float xDistanceFromTraget = Math.abs(target.getX() - x - TILE_SIZE / 4 + TILE_SIZE / 2);
-		float yDistanceFromTarget = Math.abs(target.getY() - y - TILE_SIZE / 4 + TILE_SIZE / 2);
+		float xDistanceFromTraget = (float)Math.abs(target.getX() - x - (double)TILE_SIZE / 4 + (double)TILE_SIZE / 2);
+		float yDistanceFromTarget = (float)Math.abs(target.getY() - y - (double)TILE_SIZE / 4 + (double)TILE_SIZE / 2);
 		float totalDistanceFromTarget = xDistanceFromTraget + yDistanceFromTarget;
 		float xPercentOfMovment = xDistanceFromTraget / totalDistanceFromTarget;
 		xVelocity = xPercentOfMovment;
