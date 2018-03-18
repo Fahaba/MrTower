@@ -1,4 +1,4 @@
-package al.artofsoul.data;
+package al.artofsoul.userinterface;
 
 import static al.artofsoul.ndihma.Artist.*;
 

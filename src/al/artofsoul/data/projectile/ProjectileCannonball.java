@@ -1,4 +1,6 @@
-package al.artofsoul.data;
+package al.artofsoul.data.projectile;
+
+import al.artofsoul.data.armiku.Armiku;
 
 public class ProjectileCannonball extends Projectile {
 

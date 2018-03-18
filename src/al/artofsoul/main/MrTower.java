@@ -1,4 +1,4 @@
-package al.artofsoul.data;
+package al.artofsoul.main;
 
 import static al.artofsoul.ndihma.Artist.beginSession;
 

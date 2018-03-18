@@ -1,17 +1,20 @@
-package al.artofsoul.data;
+package al.artofsoul.data.vala;
+
+import al.artofsoul.data.armiku.Armiku;
 
 import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Ora.*;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Vala {
 
 	private float timeSinceLastSpawn;
 	private float spawnTime;
 	private Armiku[] armikuLlojet;
-	private ArrayList<Armiku> armikuList;
+	private CopyOnWriteArrayList<Armiku> armikuList;
 	int enemiesPerWave;
 	int enemiesSpawned;
 	private boolean waveCompleted;
@@ -22,7 +25,7 @@ public class Vala {
 		this.enemiesPerWave = enemiesPerWave;
 		this.timeSinceLastSpawn = 0;
 		this.enemiesSpawned = 0;
-		this.armikuList = new ArrayList<>();
+		this.armikuList = new CopyOnWriteArrayList<>();
 		this.waveCompleted = false;
 		
 		spawn();
@@ -64,7 +67,7 @@ public class Vala {
 	public boolean isCompleted(){
 		return waveCompleted;
 	}
-	public ArrayList<Armiku> getArmikuList() {
+	public CopyOnWriteArrayList<Armiku> getArmikuList() {
 		return armikuList;
 	}
 }

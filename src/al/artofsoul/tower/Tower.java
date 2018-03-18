@@ -1,4 +1,4 @@
-package al.artofsoul.data;
+package al.artofsoul.tower;
 
 import static al.artofsoul.ndihma.Artist.vizatoKatrorTex;
 import static al.artofsoul.ndihma.Artist.vizatoKatrorTexRot;
@@ -7,6 +7,10 @@ import static al.artofsoul.ndihma.Ora.delta;
 import java.util.ArrayList;
 import java.util.List;
 
+import al.artofsoul.data.armiku.Armiku;
+import al.artofsoul.data.Entity;
+import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.projectile.Projectile;
 import org.newdawn.slick.opengl.Texture;
 
 public abstract class Tower implements Entity {

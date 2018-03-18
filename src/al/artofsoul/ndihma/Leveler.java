@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import al.artofsoul.data.Pllaka;
-import al.artofsoul.data.PllakaFusha;
-import al.artofsoul.data.PllakaType;
+import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.Pllaka.PllakaFusha;
+import al.artofsoul.data.Pllaka.PllakaType;
 
 public class Leveler {
 

@@ -1,8 +1,9 @@
-package al.artofsoul.data;
+package al.artofsoul.tower;
 
-import static al.artofsoul.data.Tower.TOPI_BAZA_VOG;
+import static al.artofsoul.tower.Tower.TOPI_BAZA_VOG;
 import static al.artofsoul.ndihma.Artist.*;
 
+import al.artofsoul.data.projectile.ProjectileType;
 import org.newdawn.slick.opengl.Texture;
 
 public enum TowerType {

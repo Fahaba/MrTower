@@ -1,13 +1,16 @@
-package al.artofsoul.data;
+package al.artofsoul.data.armiku;
 
 import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Ora.*;
 
 import java.util.ArrayList;
 
+import al.artofsoul.data.*;
+import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.Pllaka.PllakaFusha;
 import org.newdawn.slick.opengl.Texture;
 
-public class Armiku implements Entity{
+public class Armiku implements Entity {
 	private int width;
 	private int height;
 	private int currentCheckpoint;

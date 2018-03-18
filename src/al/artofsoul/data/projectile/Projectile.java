@@ -1,8 +1,10 @@
-package al.artofsoul.data;
+package al.artofsoul.data.projectile;
 
 import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Ora.*;
 
+import al.artofsoul.data.armiku.Armiku;
+import al.artofsoul.data.Entity;
 import org.newdawn.slick.opengl.Texture;
 
 public abstract class Projectile implements Entity {

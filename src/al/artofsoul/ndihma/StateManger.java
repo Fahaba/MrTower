@@ -2,10 +2,10 @@ package al.artofsoul.ndihma;
 
 import static al.artofsoul.ndihma.Leveler.loadMap;
 
-import al.artofsoul.data.Editor;
-import al.artofsoul.data.Game;
-import al.artofsoul.data.MainMenu;
-import al.artofsoul.data.PllakaFusha;
+import al.artofsoul.main.Editor;
+import al.artofsoul.main.Game;
+import al.artofsoul.userinterface.MainMenu;
+import al.artofsoul.data.Pllaka.PllakaFusha;
 
 public class StateManger {
 

@@ -1,4 +1,6 @@
-package al.artofsoul.data;
+package al.artofsoul.data.armiku;
+
+import al.artofsoul.data.Pllaka.PllakaFusha;
 
 public class ArmikuUFO extends Armiku{
 
