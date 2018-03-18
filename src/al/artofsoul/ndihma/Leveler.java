@@ -25,9 +25,8 @@ public class Leveler {
 			}
 		}
 		String mapData = mapDataBuilder.toString();
-		try {
-            File file = new File(mapName);
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        File file = new File(mapName);
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
 			bw.write(mapData);
 			bw.close();
 		} catch (IOException e) {
@@ -37,8 +36,7 @@ public class Leveler {
 	
 	public static PllakaFusha loadMap(String mapName) {
 		PllakaFusha grid = new PllakaFusha();
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(mapName));
+		try(BufferedReader br = new BufferedReader(new FileReader(mapName))) {
 			String data = br.readLine();
 			for (int i = 0; i < grid.getPllakaWide(); i++) {
 				for (int j = 0; j < grid.getPllakaHigh(); j++) {
