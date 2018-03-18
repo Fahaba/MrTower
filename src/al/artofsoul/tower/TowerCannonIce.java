@@ -2,7 +2,7 @@ package al.artofsoul.tower;
 
 
 import al.artofsoul.data.armiku.Armiku;
-import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.pllaka.Pllaka;
 import al.artofsoul.data.projectile.ProjectileIceball;
 
 import java.util.List;

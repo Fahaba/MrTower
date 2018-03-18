@@ -6,8 +6,8 @@ import static al.artofsoul.ndihma.Ora.*;
 import java.util.ArrayList;
 
 import al.artofsoul.data.*;
-import al.artofsoul.data.Pllaka.Pllaka;
-import al.artofsoul.data.Pllaka.PllakaFusha;
+import al.artofsoul.data.pllaka.Pllaka;
+import al.artofsoul.data.pllaka.PllakaFusha;
 import org.newdawn.slick.opengl.Texture;
 
 public class Armiku extends Entity {

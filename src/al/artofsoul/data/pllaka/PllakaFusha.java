@@ -1,4 +1,4 @@
-package al.artofsoul.data.Pllaka;
+package al.artofsoul.data.pllaka;
 
 import static al.artofsoul.ndihma.Artist.*;
 

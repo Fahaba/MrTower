@@ -3,7 +3,7 @@ package al.artofsoul.main;
 import static al.artofsoul.ndihma.Artist.*;
 
 import al.artofsoul.data.Lojtari;
-import al.artofsoul.data.Pllaka.PllakaFusha;
+import al.artofsoul.data.pllaka.PllakaFusha;
 import al.artofsoul.data.vala.ValaManager;
 import al.artofsoul.data.armiku.Armiku;
 import al.artofsoul.data.armiku.ArmikuAlien;

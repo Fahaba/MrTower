@@ -5,7 +5,7 @@ import al.artofsoul.data.armiku.Armiku;
 import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Ora.*;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -67,7 +67,7 @@ public class Vala {
 	public boolean isCompleted(){
 		return waveCompleted;
 	}
-	public CopyOnWriteArrayList<Armiku> getArmikuList() {
+	public List<Armiku> getArmikuList() {
 		return armikuList;
 	}
 }

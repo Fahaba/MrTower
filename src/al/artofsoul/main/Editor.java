@@ -3,8 +3,8 @@ package al.artofsoul.main;
 import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Leveler.*;
 
-import al.artofsoul.data.Pllaka.PllakaFusha;
-import al.artofsoul.data.Pllaka.PllakaType;
+import al.artofsoul.data.pllaka.PllakaFusha;
+import al.artofsoul.data.pllaka.PllakaType;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;

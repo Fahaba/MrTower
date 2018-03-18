@@ -1,6 +1,6 @@
 package al.artofsoul.data;
 
-import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.pllaka.Pllaka;
 
 public class Checkpoint {
 	

@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import al.artofsoul.data.Pllaka.Pllaka;
-import al.artofsoul.data.Pllaka.PllakaFusha;
-import al.artofsoul.data.Pllaka.PllakaType;
+import al.artofsoul.data.pllaka.Pllaka;
+import al.artofsoul.data.pllaka.PllakaFusha;
+import al.artofsoul.data.pllaka.PllakaType;
 
 public class Leveler {
 
@@ -28,7 +28,6 @@ public class Leveler {
         File file = new File(mapName);
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
 			bw.write(mapData);
-			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,7 +42,6 @@ public class Leveler {
 					grid.shtoPllaka(i, j, getTileType(data.substring(i * grid.getPllakaHigh() + j, i * grid.getPllakaHigh() + j + 1)));
 				}
 			}
-			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

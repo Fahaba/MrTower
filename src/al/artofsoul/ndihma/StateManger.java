@@ -5,7 +5,7 @@ import static al.artofsoul.ndihma.Leveler.loadMap;
 import al.artofsoul.main.Editor;
 import al.artofsoul.main.Game;
 import al.artofsoul.userinterface.MainMenu;
-import al.artofsoul.data.Pllaka.PllakaFusha;
+import al.artofsoul.data.pllaka.PllakaFusha;
 
 public class StateManger {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import al.artofsoul.data.armiku.Armiku;
 import al.artofsoul.data.Entity;
-import al.artofsoul.data.Pllaka.Pllaka;
+import al.artofsoul.data.pllaka.Pllaka;
 import al.artofsoul.data.projectile.Projectile;
 import org.newdawn.slick.opengl.Texture;
 
