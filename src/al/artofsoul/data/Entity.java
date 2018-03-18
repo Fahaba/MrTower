@@ -4,11 +4,11 @@ import al.artofsoul.data.armiku.Armiku;
 
 public abstract class Entity {
 
-    public float x;
-    public float y;
-    public int width;
-    public int height;
-    public Armiku target;
+    private float x;
+    private float y;
+    private int width;
+    private int height;
+    private Armiku target;
 
 	public float getX() {
 		return x;
@@ -41,6 +41,8 @@ public abstract class Entity {
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
+    public void setTarget(Armiku target) { this.target = target; }
 
 	public Armiku getTarget() { return target; }
 

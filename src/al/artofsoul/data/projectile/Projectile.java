@@ -18,13 +18,13 @@ public abstract class Projectile extends Entity {
 	
 	public Projectile(ProjectileType type, Armiku target, float x, float y, int width, int height ){
 		this.texture = type.texture;
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		setX(x);
+		setY(y);
+		setWidth(width);
+		setHeight(height);
 		this.speed = type.speed;
 		this.damage = type.damage;
-		this.target = target;
+		setTarget(target);
 		this.alive = true;
 		this.xVelocity = 0f;
 		this.yVelocity = 0f;
@@ -33,6 +33,9 @@ public abstract class Projectile extends Entity {
 	
 	private void calculateDirection() {
 		float totalAllowedMovement = 1.0f;
+		Armiku target = getTarget();
+		float x = getX();
+		float y = getY();
 		float xDistanceFromTraget = Math.abs(target.getX() - x - TILE_SIZE / 4 + TILE_SIZE / 2);
 		float yDistanceFromTarget = Math.abs(target.getY() - y - TILE_SIZE / 4 + TILE_SIZE / 2);
 		float totalDistanceFromTarget = xDistanceFromTraget + yDistanceFromTarget;
@@ -47,22 +50,28 @@ public abstract class Projectile extends Entity {
 	}
 	//Deals damage to Enemy
 	public void damage () {
-		target.damage(damage);
+		getTarget().damage(damage);
 		alive = false;
 	}
 	
 	public void update() {
 		if (alive) {
-			x += xVelocity * speed * delta();
-			y += yVelocity * speed * delta();
-			if (checkCollosion(x, y, width, height, target.getX(),
+		    float x = getX();
+		    float y = getY();
+		    Armiku target = getTarget();
+
+			setX(x + xVelocity * speed * delta());
+			setY(y + yVelocity * speed * delta());
+            x = getX();
+            y = getY();
+			if (checkCollosion(x, y, getWidth(), getHeight(), target.getX(),
 					target.getY(), target.getWidth()))
 				damage();
 			draw();
 		}
 	}
 	 public void draw() {
-		 vizatoKatrorTex(texture, x, y, 32, 32);
+		 vizatoKatrorTex(texture, getX(), getY(), 32, 32);
 	 }
 
 	public void setAlive(boolean status) {

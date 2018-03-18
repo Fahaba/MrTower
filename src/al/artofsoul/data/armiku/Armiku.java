@@ -34,10 +34,10 @@ public class Armiku extends Entity {
 		this.healthForeground = quickLoad("/res/armiku/healthForeg");
 		this.healthBorder = quickLoad("/res/armiku/healthBord");
 		this.filloPllaka = grid.merrPllaka(tilleX, tileY);
-		this.x = filloPllaka.getX();
-		this.y = filloPllaka.getY();
-		this.width = TILE_SIZE;
-		this.height = TILE_SIZE;
+		setX(filloPllaka.getX());
+		setY(filloPllaka.getY());
+		setWidth(TILE_SIZE);
+		setHeight(TILE_SIZE);
 		this.speed = 40;
 		this.health = 40;
 		setVars(grid);
@@ -50,10 +50,10 @@ public class Armiku extends Entity {
 		this.healthForeground = quickLoad("/res/armiku/healthForeg");
 		this.healthBorder = quickLoad("/res/armiku/healthBord");
 		this.filloPllaka = filloPllaka;
-		this.x = filloPllaka.getX();
-		this.y = filloPllaka.getY();
-		this.width = width;
-		this.height = height;
+		setX(filloPllaka.getX());
+		setY(filloPllaka.getY());
+		setWidth(width);
+		setHeight(height);
 		this.speed = speed;
 		this.health = health;
 		setVars(grid);
@@ -88,8 +88,11 @@ public class Armiku extends Entity {
 					currentCheckpoint++;
 			} else {
 				// if not at a checkpoint, continue in current direction
-				x += delta() * checkpoints.get(currentCheckpoint).getxDirection() * speed;
-				y += delta() * checkpoints.get(currentCheckpoint).getyDirection() * speed;
+                float x = getX();
+                float y = getY();
+
+				setX(x + delta() * checkpoints.get(currentCheckpoint).getxDirection() * speed);
+				setY(y + delta() * checkpoints.get(currentCheckpoint).getyDirection() * speed);
 			}
 		}
 	}
@@ -103,14 +106,17 @@ public class Armiku extends Entity {
 		boolean reached = false;
 		Pllaka t = checkpoints.get(currentCheckpoint).getPllaka();
 		// check if position reached tile within variance of 3 (arbitrary)
+        float x = getX();
+        float y = getY();
+
 		if ( x > t.getX() - 3 && 
 				x < t.getX() + 3 &&
 				y > t.getY() - 3 &&
 				y < t.getY() + 3){
 		
 			reached = true;
-			x = t.getX();
-			y = t.getY();
+			setX(t.getX());
+			setY(t.getY());
 		}	
 		return reached;
 	}
@@ -203,6 +209,11 @@ public class Armiku extends Entity {
 	
 	public void draw(){
 		float healthPercentage = health / startHealth;
+		float x = getX();
+		float y = getY();
+		int width = getWidth();
+		int height = getHeight();
+
 		// enemy texture 
 		vizatoKatrorTex(texture, x, y, width, height);
 		// health bar textures

@@ -34,10 +34,10 @@ public abstract class Tower extends Entity {
 		this.textures = type.textures;
 		this.range = type.range;
 		this.cost = type.cost;
-		this.x = filloPllaka.getX();
-		this.y = filloPllaka.getY();
-		this.width = filloPllaka.getWidth();
-		this.height = filloPllaka.getHeight();
+		setX(filloPllaka.getX());
+		setY(filloPllaka.getY());
+		setWidth(filloPllaka.getWidth());
+		setHeight(filloPllaka.getHeight());
 		this.armiqt = armiqt;
 		this.targeted = false;
 		this.timeSinceLastShot = 0f;
@@ -64,19 +64,19 @@ public abstract class Tower extends Entity {
 	}
 	
 	private boolean isInRange(Armiku e) {
-		float xDistance = Math.abs(e.getX() - x);
-		float yDistance = Math.abs(e.getY() - y);
+		float xDistance = Math.abs(e.getX() - getX());
+		float yDistance = Math.abs(e.getY() - getY());
 		return (xDistance < range && yDistance < range);
 	}
 	
 	private float findDistance(Armiku e) {
-		float xDistance = Math.abs(e.getX() - x);
-		float yDistance = Math.abs(e.getY() - y);
+		float xDistance = Math.abs(e.getX() - getX());
+		float yDistance = Math.abs(e.getY() - getY());
 		return xDistance + yDistance;
 	}
 	
 	private float calculateAngle () {
-		double angleTemp = Math.atan2(getTarget().getY() - y, target.getX() - x);
+		double angleTemp = Math.atan2(getTarget().getY() - getY(), getTarget().getX() - getX());
 		return (float) Math.toDegrees(angleTemp) - 90;	
 	}
 	//abstarct method for 'shoot', must be override in subclasses
@@ -109,13 +109,17 @@ public abstract class Tower extends Entity {
 	}
 
 	public void draw() {
+	    float x = getX();
+	    float y = getY();
+	    int width = getWidth();
+	    int height = getHeight();
+
 		vizatoKatrorTex(textures[0], x, y, width, height);
 		if (textures.length > 1)
 			for(int i = 1; i < textures.length; i++)
 				vizatoKatrorTexRot(textures[i], x, y, width, height, angle);
 	}
 
-	public void setTarget(Armiku target) { this.target = target; }
 	public List getProjectileList() { return projectiles; }
     public void setProjectileList(List projectiles) { this.projectiles = projectiles; }
     public void setType(TowerType type) { this.type = type; }
