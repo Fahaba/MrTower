@@ -7,18 +7,13 @@ import al.artofsoul.data.armiku.Armiku;
 import al.artofsoul.data.Entity;
 import org.newdawn.slick.opengl.Texture;
 
-public abstract class Projectile implements Entity {
+public abstract class Projectile extends Entity {
 
 	private Texture texture;
-	private float x;
-	private float y;
 	private float speed;
 	private float xVelocity;
 	private float yVelocity;
 	private int damage;
-	private int width;
-	private int height;
-	private Armiku target;
 	private boolean alive;
 	
 	public Projectile(ProjectileType type, Armiku target, float x, float y, int width, int height ){
@@ -70,41 +65,6 @@ public abstract class Projectile implements Entity {
 		 vizatoKatrorTex(texture, x, y, 32, 32);
 	 }
 
-	public float getX() {
-		return x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setX(float x) {
-		this.x = x;
-	}
-
-	public void setY(float y) {
-		this.y = y;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-	
-	public Armiku getTarget() {
-		return target;
-	}
 	public void setAlive(boolean status) {
 		alive = status;
 	}

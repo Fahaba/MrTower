@@ -13,21 +13,16 @@ import al.artofsoul.data.Pllaka.Pllaka;
 import al.artofsoul.data.projectile.Projectile;
 import org.newdawn.slick.opengl.Texture;
 
-public abstract class Tower implements Entity {
+public abstract class Tower extends Entity {
 
 
     public static final String TOPI_BAZA_VOG = "/res/player/topiBazaVog";
 
-	private float x;
-    private float y;
     private float timeSinceLastShot;
     private float firingSpeed;
     private float angle;
-	private int width;
-    private int height;
     private int range;
     private int cost;
-	private Armiku target;
 	private Texture[] textures;
 	private List<Armiku> armiqt;
 	private boolean targeted;
@@ -126,39 +121,6 @@ public abstract class Tower implements Entity {
     public void setType(TowerType type) { this.type = type; }
     public TowerType getTowerType() { return this.type; }
 
-	public float getX() {
-		return x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setX(float x) {
-		this.x = x;	
-	}
-
-	public void setY(float y) {
-		this.y = y;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;	
-	}
-
-	public void setHeight(int height) {
-		this.height = height;	
-	}
-	
-	public Armiku getTarget() { return target; }
 	public int getCost() {
 		return cost;
 	}

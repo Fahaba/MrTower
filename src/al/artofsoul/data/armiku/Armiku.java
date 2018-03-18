@@ -10,13 +10,9 @@ import al.artofsoul.data.Pllaka.Pllaka;
 import al.artofsoul.data.Pllaka.PllakaFusha;
 import org.newdawn.slick.opengl.Texture;
 
-public class Armiku implements Entity {
-	private int width;
-	private int height;
+public class Armiku extends Entity {
 	private int currentCheckpoint;
 	private float speed;
-	private float x;
-	private float y;
 	private float health;
 	private float startHealth;
 	private Texture texture;
@@ -215,22 +211,6 @@ public class Armiku implements Entity {
 		vizatoKatrorTex(healthBorder, x, y - 16, width, 8);
 	}
 
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
 	public float getHealth() {
 		return health;
 	}
@@ -245,22 +225,6 @@ public class Armiku implements Entity {
 
 	public void setSpeed(float speed) {
 		this.speed = speed;
-	}
-
-	public float getX() {
-		return x;
-	}
-
-	public void setX(float x) {
-		this.x = x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public void setY(float y) {
-		this.y = y;
 	}
 
 	public Texture getTexture() {
