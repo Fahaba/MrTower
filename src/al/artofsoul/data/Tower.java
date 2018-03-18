@@ -6,15 +6,13 @@ import static al.artofsoul.ndihma.Ora.delta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.newdawn.slick.opengl.Texture;
 
 public abstract class Tower implements Entity {
 
 
-    public static final String topiBazaVog = "/res/player/topiBazaVog";
-    public static final String  topiRedplumbiVog = "/res/player/topiRedplumbiVog";
+    public static final String TOPI_BAZA_VOG = "/res/player/topiBazaVog";
 
 	private float x;
     private float y;
@@ -27,12 +25,12 @@ public abstract class Tower implements Entity {
     private int cost;
 	private Armiku target;
 	private Texture[] textures;
-	private CopyOnWriteArrayList<Armiku> armiqt;
+	private List<Armiku> armiqt;
 	private boolean targeted;
 	private List<Projectile> projectiles;
 	private TowerType type;
 
-	public Tower(TowerType type, Pllaka filloPllaka, CopyOnWriteArrayList<Armiku> armiqt) {
+	public Tower(TowerType type, Pllaka filloPllaka, List<Armiku> armiqt) {
 		setType(type);
 		this.textures = type.textures;
 		this.range = type.range;
@@ -55,7 +53,7 @@ public abstract class Tower implements Entity {
 		float closestDistance = 1000;
 		// Go thought each Enemy in 'Armiku' and return nearest one
 		for (Armiku e: armiqt) {
-			if (isInRange(e) && findDistance(e) < closestDistance && e.isAlive()) {//e.getHiddenHealth() > 0) {
+			if (isInRange(e) && findDistance(e) < closestDistance && e.isAlive()) {
 				closestDistance = findDistance(e);
 				closest = e;
 			}
@@ -85,7 +83,7 @@ public abstract class Tower implements Entity {
 	//abstarct method for 'shoot', must be override in subclasses
 	public abstract void shoot (Armiku target);
 	
-	public void updateEnemyLists(CopyOnWriteArrayList<Armiku> newList) {
+	public void updateEnemyLists(List<Armiku> newList) {
 		armiqt = newList;
 	}
 	

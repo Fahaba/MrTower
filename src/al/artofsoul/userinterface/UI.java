@@ -48,11 +48,10 @@ public class UI {
 			return false;
 
 		float mouseY = HEIGHT - Mouse.getY() - 1;
-		if (Mouse.getX() > b.getX() && Mouse.getX() < b.getX() + b.getWidth() &&
-				mouseY > b.getY() && mouseY < b.getY() + b.getHeight()) {
-			return true;
-		}
-		return false;
+		return (Mouse.getX() > b.getX()
+                && Mouse.getX() < b.getX() + b.getWidth()
+                && mouseY > b.getY()
+                && mouseY < b.getY() + b.getHeight());
 	}
 	
 	private Button getButton(String buttonName) {
@@ -99,7 +98,7 @@ public class UI {
 		private void setButton (Button b) {
 			if (optionsWidth !=0)
 				b.setY(y + (buttonAmount ) * TILE_SIZE); // say buttons to go downt, optionsWidth is 2
-			b.setX(x + buttonAmount * (padding + TILE_SIZE) + padding);
+			b.setX(x + (buttonAmount % 1) * (padding + TILE_SIZE) + padding);
 			buttonAmount++;
 			menuButtons.add(b);
 		}

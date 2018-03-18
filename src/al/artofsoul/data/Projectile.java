@@ -58,7 +58,7 @@ public abstract class Projectile implements Entity {
 		if (alive) {
 			x += xVelocity * speed * delta();
 			y += yVelocity * speed * delta();
-			if (CheckCollosion (x, y, width, height, target.getX(), 
+			if (checkCollosion(x, y, width, height, target.getX(),
 					target.getY(), target.getWidth()))
 				damage();
 			draw();

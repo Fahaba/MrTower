@@ -1,10 +1,11 @@
 package al.artofsoul.data;
 
-import java.util.concurrent.CopyOnWriteArrayList;
+
+import java.util.List;
 
 public class TowerCannonBlue extends Tower {
 	
-	public TowerCannonBlue (TowerType type, Pllaka merrPllaka, CopyOnWriteArrayList<Armiku> armiqt) {
+	public TowerCannonBlue (TowerType type, Pllaka merrPllaka, List<Armiku> armiqt) {
 		super(type, merrPllaka, armiqt);
 	}
 	

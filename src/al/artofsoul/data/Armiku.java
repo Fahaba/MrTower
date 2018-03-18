@@ -15,7 +15,7 @@ public class Armiku implements Entity{
 	private float x;
 	private float y;
 	private float health;
-	private float startHealth;// hiddenHealth;
+	private float startHealth;
 	private Texture texture;
 	private Texture healthBackground;
 	private Texture healthForeground;
@@ -41,20 +41,7 @@ public class Armiku implements Entity{
 		this.height = TILE_SIZE;
 		this.speed = 40;
 		this.health = 40;
-		this.startHealth = health;
-		this.grid = grid;
-		this.first = true;
-		this.alive = true;
-		this.checkpoints = new ArrayList<>();
-		this.directions = new int [2];
-		// x direction
-		this.directions[0] = 0;
-		// y direction
-		this.directions[1] = 0;
-		this.directions = findNextD(filloPllaka);
-		this.currentCheckpoint = 0;
-		populateCheckpointlist();
-	
+		setVars(grid);
 	}
 	
 	public Armiku(Texture texture, Pllaka filloPllaka, PllakaFusha grid, int width, 
@@ -70,21 +57,25 @@ public class Armiku implements Entity{
 		this.height = height;
 		this.speed = speed;
 		this.health = health;
-		this.startHealth = health;
-		this.grid = grid;
-		this.first = true;
-		this.alive = true;
-		this.checkpoints = new ArrayList<>();
-		this.directions = new int [2];
-		// x direction
-		this.directions[0] = 0;
-		// y direction
-		this.directions[1] = 0;
-		this.directions = findNextD(filloPllaka);
-		this.currentCheckpoint = 0;
-		populateCheckpointlist();
+		setVars(grid);
 	}
-	
+
+	private void setVars(PllakaFusha grid) {
+        this.startHealth = health;
+        this.grid = grid;
+        this.first = true;
+        this.alive = true;
+        this.checkpoints = new ArrayList<>();
+        this.directions = new int [2];
+        // x direction
+        this.directions[0] = 0;
+        // y direction
+        this.directions[1] = 0;
+        this.directions = findNextD(filloPllaka);
+        this.currentCheckpoint = 0;
+        populateCheckpointlist();
+    }
+
 	public void update(){
 		// check if it's the first time this class is updated, if so do nothing
 		if (first)

@@ -1,11 +1,11 @@
 package al.artofsoul.data;
 
 
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
 
 public class TowerIce extends Tower {
 
-	public TowerIce(TowerType type, Pllaka filloPllaka, CopyOnWriteArrayList<Armiku> armiqt) {
+	public TowerIce(TowerType type, Pllaka filloPllaka, List<Armiku> armiqt) {
 		super(type, filloPllaka, armiqt);
 	}
 	

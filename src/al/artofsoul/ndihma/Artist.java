@@ -49,8 +49,8 @@ public class Artist {
 		
 	}
 	
-	public static boolean CheckCollosion (float x1, float y1, float width1, float height1,
-			float x2, float y2, float width2) {
+	public static boolean checkCollosion(float x1, float y1, float width1, float height1,
+                                         float x2, float y2, float width2) {
 		return (x1 + width1 > x2
                 && x1 < x2 + width2
                 && y1 + height1 > y2

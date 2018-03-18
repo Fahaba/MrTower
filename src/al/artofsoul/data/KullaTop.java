@@ -5,7 +5,7 @@ import static al.artofsoul.ndihma.Artist.*;
 import static al.artofsoul.ndihma.Ora.*;
 
 import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
 
 import org.newdawn.slick.opengl.Texture;
 
@@ -22,15 +22,16 @@ public class KullaTop {
 	private Texture baseTexture;
 	private Texture cannonTexture;
 	private ArrayList<Projectile> projectiles;
-	private CopyOnWriteArrayList<Armiku> armiqt;
+	private List<Armiku> armiqt;
 	private Armiku target;
 	private boolean targeted;
 	
 	
-	public KullaTop (Texture baseTexture, Pllaka filloPllaka, int range, CopyOnWriteArrayList<Armiku> armiqt){
+	public KullaTop (Texture baseTexture, Pllaka filloPllaka, int range, List<Armiku> armiqt){
 		this.baseTexture = baseTexture;
-		this.cannonTexture = quickLoad("/res/player/topiBazaVog"); //plumi for 64, topiBaza for 32
-		this.x = filloPllaka.getX();
+        this.cannonTexture = quickLoad("/res/player/topiBazaVog"); //plumi for 64, topiBaza for 32
+
+        this.x = filloPllaka.getX();
 		this.y = filloPllaka.getY();
 		this.width = filloPllaka.getWidth();
 		this.height = filloPllaka.getHeight();
@@ -77,7 +78,7 @@ public class KullaTop {
 	
 	private void shoot(){ timeSinceLastShot = 0; }
 	
-	public void updateEnemyLists(CopyOnWriteArrayList<Armiku> newList) {
+	public void updateEnemyLists(List<Armiku> newList) {
 		armiqt = newList;
 	}
 	
